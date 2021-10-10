@@ -12,45 +12,9 @@ namespace BsStackDemoTest.Src.Helpers
         {
             try
             {
-                /*
-                if (timeoutInSeconds > 0)
-                {
-                    var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeoutInSeconds));
-                    return wait.Until(drv => drv.FindElement(by));
-                }
-                return driver.FindElement(by);
-                */
                 DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(driver);
-                fluentWait.Timeout = TimeSpan.FromSeconds(10);
-                fluentWait.PollingInterval = TimeSpan.FromSeconds(timeoutInSeconds);
-                fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException));
-                fluentWait.IgnoreExceptionTypes(typeof(ElementNotInteractableException));
-                fluentWait.Message = "Element to be searched not found";
-
-                return fluentWait.Until(ExpectedConditions.ElementExists(by));
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
-        public static IWebElement FindElement(this IWebElement element, IWebDriver driver, By by, int timeoutInSeconds)
-        {
-            try
-            {
-                /*
-                if (timeoutInSeconds > 0)
-                {
-                    var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeoutInSeconds));
-                    return wait.Until(drv => drv.FindElement(by));
-                }
-                return driver.FindElement(by);*/
-
-                DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(driver);
-                fluentWait.Timeout = TimeSpan.FromSeconds(10);
-                fluentWait.PollingInterval = TimeSpan.FromSeconds(timeoutInSeconds);
+                fluentWait.Timeout = TimeSpan.FromSeconds(timeoutInSeconds);
+                fluentWait.PollingInterval = TimeSpan.FromSeconds(1);
                 fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException));
                 fluentWait.IgnoreExceptionTypes(typeof(ElementNotInteractableException));
                 fluentWait.Message = "Element to be searched not found";

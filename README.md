@@ -2,7 +2,6 @@
 
 ## BsStackDemo Automated Tests
 
----
 
 ## Dependencies & Prerequisites:
 
@@ -13,7 +12,6 @@
 - Google Chrome version 94.0 installed on the system
 - ChromeDriver version 94.0 binary added to PATH environment variable. **[Read Tutorial](https://zwbetz.com/download-chromedriver-binary-and-add-to-your-path-for-automated-functional-testing/#windows-gui)**
 
----
 
 ## Setup & Execution:
 
@@ -23,7 +21,6 @@
 - To start automated test execution, type the following command on the CLI:
 ``` dotnet test```
 
----
 
 ## Automated Test Report Generation:
 
@@ -35,7 +32,6 @@
 - A HTML report file with the name **LivingDoc** will be generated and store in the same directory.
 - This report file is self contained and can easily be shared.
 
----
 
 ## Solution Details:
 

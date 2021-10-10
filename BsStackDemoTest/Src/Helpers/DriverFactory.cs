@@ -22,8 +22,16 @@ namespace BsStackDemoTest.Src.Helpers
 
         public static void NukeDriver()
         {
-            _driver.Close();
-            _driver.Quit();
+            try
+            {
+                _driver.Close();
+                _driver.Quit();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

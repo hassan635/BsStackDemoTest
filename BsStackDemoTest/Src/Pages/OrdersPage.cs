@@ -20,29 +20,45 @@ namespace BsStackDemoTest.Src.Pages
 
         public List<string> GetOrderTitles()
         {
-            Thread.Sleep(2000);
-            ReadOnlyCollection<IWebElement> orderTitleElements = _driver.FindElements(By.CssSelector("div.a-fixed-left-grid-col.a-col-right > div"));
-            List<string> orderTitles = new List<string>();
-
-            foreach (IWebElement orderTitleElement in orderTitleElements)
+            try
             {
-                orderTitles.Add(orderTitleElement.Text);
-            }
+                Thread.Sleep(2000);
+                ReadOnlyCollection<IWebElement> orderTitleElements = _driver.FindElements(By.CssSelector("div.a-fixed-left-grid-col.a-col-right > div"));
+                List<string> orderTitles = new List<string>();
 
-            for (int i = 0; i < orderTitles.Count; i++)
+                foreach (IWebElement orderTitleElement in orderTitleElements)
+                {
+                    orderTitles.Add(orderTitleElement.Text);
+                }
+
+                for (int i = 0; i < orderTitles.Count; i++)
+                {
+                    orderTitles[i] = orderTitles[i].Replace("Title: ", "");
+                }
+
+                return orderTitles;
+            }
+            catch (Exception)
             {
-                orderTitles[i] = orderTitles[i].Replace("Title: ", "");
-            }
 
-            return orderTitles;
+                throw;
+            }
         }
 
         public int GetTotalOrderCost()
         {
-            string totalOrderCostText = _driver.FindElement(By.CssSelector("div.a-column.a-span2 div.a-row.a-size-base > span"), 2).Text;
-            totalOrderCostText = totalOrderCostText.Replace("$", "");
+            try
+            {
+                string totalOrderCostText = _driver.FindElement(By.CssSelector("div.a-column.a-span2 div.a-row.a-size-base > span"), 2).Text;
+                totalOrderCostText = totalOrderCostText.Replace("$", "");
 
-            return Convert.ToInt32(totalOrderCostText);
+                return Convert.ToInt32(totalOrderCostText);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

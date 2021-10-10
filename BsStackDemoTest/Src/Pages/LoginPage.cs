@@ -18,16 +18,32 @@ namespace BsStackDemoTest.Src.Pages
 
         public ProductsPage LoginAs(string username)
         {
-            var executor = (IJavaScriptExecutor)_driver;
-            executor.ExecuteScript($"sessionStorage.setItem(\"username\", '\"{username}\"');");
-            return new ProductsPage(_driver);
+            try
+            {
+                var executor = (IJavaScriptExecutor)_driver;
+                executor.ExecuteScript($"sessionStorage.setItem(\"username\", '\"{username}\"');");
+                return new ProductsPage(_driver);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public ProductsPage Logout()
         {
-            var executor = (IJavaScriptExecutor)_driver;
-            executor.ExecuteScript("sessionStorage.clear();");
-            return new ProductsPage(_driver);
+            try
+            {
+                var executor = (IJavaScriptExecutor)_driver;
+                executor.ExecuteScript("sessionStorage.clear();");
+                return new ProductsPage(_driver);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

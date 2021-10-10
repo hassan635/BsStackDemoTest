@@ -18,8 +18,16 @@ namespace BsStackDemoTest.Src.Pages
 
         public OrdersPage GotoOrdersPage()
         {
-            _driver.FindElement(By.Id("orders"), 2).Click();
-            return new OrdersPage(_driver);
+            try
+            {
+                _driver.FindElement(By.Id("orders"), 2).Click();
+                return new OrdersPage(_driver);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

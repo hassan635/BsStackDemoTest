@@ -20,24 +20,40 @@ namespace BsStackDemoTest.Src.Pages
 
         public void SelectProductByTitle(string title)
         {
-            Thread.Sleep(2000);
-            ReadOnlyCollection<IWebElement> items = (ReadOnlyCollection<IWebElement>)_driver.FindElements(By.ClassName("shelf-item"), 10);
-
-            foreach (IWebElement item in items)
+            try
             {
-                var elementTitle = item.FindElement(By.ClassName("shelf-item__title")).Text;
-                if (elementTitle == title)
+                Thread.Sleep(4000);
+                ReadOnlyCollection<IWebElement> items = (ReadOnlyCollection<IWebElement>)_driver.FindElements(By.ClassName("shelf-item"), 5);
+
+                foreach (IWebElement item in items)
                 {
-                    item.FindElement(By.ClassName("shelf-item__buy-btn")).Click();
-                    break;
+                    var elementTitle = item.FindElement(By.ClassName("shelf-item__title")).Text;
+                    if (elementTitle == title)
+                    {
+                        item.FindElement(By.ClassName("shelf-item__buy-btn")).Click();
+                        break;
+                    }
                 }
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
 
         public CheckoutPage GotoCheckoutPage()
         {
-            _driver.FindElement(By.ClassName("buy-btn"), 5).Click();
-            return new CheckoutPage(_driver);
+            try
+            {
+                _driver.FindElement(By.ClassName("buy-btn"), 5).Click();
+                return new CheckoutPage(_driver);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public OrdersPage GotoOrdersPage()
