@@ -38,6 +38,10 @@
 - Incorporates Page Object Model for the Login, Checkout, Orders and Product pages.
 - Product and Orders object 'has-a' navigation object since the navigation is available for both these pages in the actual UI.
 - These page objects are then used to write a tests in respective step definitions for the Order details feature.
+- 3 tests are written for demonstration purposes. More are possible.
+- 2 tests are for verifying whether the Product title is identical between product listing and order details page. Thus verifying that the correct products appear in the orders page.
+- 1 test is written to verify the total order cost of a order based on the selected products.
+- Tests are written in a way that manual testers and business users can utilize them to understand and test the application in an automated manner without the need for any code. Only feature file manupilation required.
 - Selenium WebDriver library is employed to drive the browser.
 - Specflow is employed to provide executable features.
 - NUnit is used for assertions.
