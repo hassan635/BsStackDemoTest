@@ -1,0 +1,13 @@
+﻿{
+  "user_passwords": [
+    { "demouser": "testingisfun99" },
+    { "fav_user": "testingisfun99" }
+  ],
+  "checkout_form_details": [
+    { "first_name": "Hasan Ali" },
+    { "last_name": "Tariq" },
+    { "address": "Werribee" },
+    { "state": "VIC" },
+    { "post_code": "3030" }
+  ]
+}
