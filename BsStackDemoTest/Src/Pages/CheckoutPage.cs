@@ -28,7 +28,6 @@ namespace BsStackDemoTest.Src.Pages
         {
             try
             {
-                //Thread.Sleep(1000);
                 _driver.FindElement(firstNameTextBox, 5).SendKeys(ConfigManager.GetTestInputValue("$..first_name"));
                 _driver.FindElement(lastNameTextBox).SendKeys(ConfigManager.GetTestInputValue("$..last_name"));
                 _driver.FindElement(addressTextBox).SendKeys(ConfigManager.GetTestInputValue("$..address"));

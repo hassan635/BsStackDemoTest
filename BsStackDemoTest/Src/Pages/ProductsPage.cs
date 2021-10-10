@@ -1,5 +1,6 @@
 ﻿using BsStackDemoTest.Src.Helpers;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,15 +23,16 @@ namespace BsStackDemoTest.Src.Pages
         {
             try
             {
-                Thread.Sleep(4000);
                 ReadOnlyCollection<IWebElement> items = (ReadOnlyCollection<IWebElement>)_driver.FindElements(By.ClassName("shelf-item"), 5);
+
+                var executor = (IJavaScriptExecutor)_driver;
 
                 foreach (IWebElement item in items)
                 {
                     var elementTitle = item.FindElement(By.ClassName("shelf-item__title")).Text;
                     if (elementTitle == title)
                     {
-                        item.FindElement(By.ClassName("shelf-item__buy-btn")).Click();
+                        executor.ExecuteScript("arguments[0].click();", item.FindElement(By.ClassName("shelf-item__buy-btn")));
                         break;
                     }
                 }
@@ -46,7 +48,8 @@ namespace BsStackDemoTest.Src.Pages
         {
             try
             {
-                _driver.FindElement(By.ClassName("buy-btn"), 5).Click();
+                var executor = (IJavaScriptExecutor)_driver;
+                executor.ExecuteScript("arguments[0].click();", _driver.FindElement(By.ClassName("buy-btn")));
                 return new CheckoutPage(_driver);
             }
             catch (Exception)

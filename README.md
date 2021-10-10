@@ -47,6 +47,6 @@
 - NUnit is used for assertions.
 - Test data values are injected via a JSON file.
 - Login UI is bypassed by injecting the username key in the session.
-- Dynamic waiting strategy is applied commonly. Some exceptional scenarios utilize explicit waiting for more reliable test execution.
+- Dynamic waiting strategy is applied to poll for elements instead of using explicit waits to optimize test execution time.
 
 ---

@@ -22,8 +22,7 @@ namespace BsStackDemoTest.Src.Pages
         {
             try
             {
-                Thread.Sleep(2000);
-                ReadOnlyCollection<IWebElement> orderTitleElements = _driver.FindElements(By.CssSelector("div.a-fixed-left-grid-col.a-col-right > div"));
+                ReadOnlyCollection<IWebElement> orderTitleElements = (ReadOnlyCollection<IWebElement>)_driver.FindElements(By.CssSelector("div.a-fixed-left-grid-col.a-col-right > div"), 5);
                 List<string> orderTitles = new List<string>();
 
                 foreach (IWebElement orderTitleElement in orderTitleElements)
